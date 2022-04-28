@@ -1,0 +1,616 @@
+@import url(../../assets/fonts/Arial/stylesheet.css);
+@import url(../../assets/fonts/Georgia/stylesheet.css);
+
+$logo: #f1cdb3;
+$hov: #FDDCC4;
+$dark: #292929;
+$gray: #545454;
+$white: #FFFFFF;
+$georgia: "Georgia";
+@mixin buttons {
+    border-radius: 100px;
+    border: 2px solid $logo;
+    box-sizing: border-box;
+    background-color: transparent;
+    font-size: 17px;
+    font-family: $georgia;
+    padding: 13px 43px;
+    cursor: pointer;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+body {
+    max-width: 1280px;
+    margin: 0 auto;
+    font-family: "Arial";
+    font-size: 13px;
+    color: $white;
+}
+.body-dark {
+    display: none;
+}
+.no-scroll {
+    overflow: hidden;
+}
+.body-dark-active {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    background-color: $dark;
+    opacity: .6;
+    position: fixed;
+    z-index: 50;
+    cursor: pointer;
+}
+.burger-btn {
+    display: none;
+}
+header {
+    max-width: 1200px;
+    max-height: 60px;
+    padding: 30px 40px;
+    display: flex;
+    justify-content: space-between;
+    background-color: $white;
+    position: sticky;
+    top: 0;
+    .logo {
+        text-decoration: none;
+        .logo-title {
+            font-family: $georgia;
+            font-size: 32px;
+            color: $gray;
+            letter-spacing: 0.06em;
+        }
+        
+        .logo-subtitle {
+            display: block;
+            margin: 10px 0 0 4px;
+            letter-spacing: 0.1em;
+            color: $dark;
+        }
+        
+    }
+    .logo-open {
+        display: none;
+    }
+    nav {
+        ul {
+            max-width: 447px;
+            padding-top: 4px;
+            display: flex;
+            gap: 35.5px;
+            li {
+                list-style-type: none;
+                line-height: 24px;
+                .active {
+                    border-bottom: $logo 3px solid;
+                    color: $dark;
+                }
+                a {
+                    color: $gray;
+                    font-size: 15px;
+                    text-decoration: none;
+                    padding-bottom: 3px;
+                    &:hover {
+                        color: $dark;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.title {
+    margin: 0;
+    color: $gray;
+    letter-spacing: 0.06em;
+    font-family: $georgia;
+    font-size: 35px;
+    font-weight: normal;
+    line-height: 45px;
+    text-align: center;
+}
+.pets {
+    background-color: #f6f6f6;
+    padding: 80px 0 100px;
+}
+.cards {
+    margin-top: 45px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 40px;
+    row-gap: 30px;
+    .pet-card {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        background-color: #fafafa;
+        border-radius: 9px;
+        img {
+            border-radius: 9px 9px 0 0;
+        }
+        span {
+            color: $gray;
+            font-family: $georgia;
+            font-size: 20px;
+            letter-spacing: 0.06em;
+            line-height: 23px;
+            text-align: center;
+        }
+        button {
+            @include buttons();
+            margin: 0 auto 30px;
+            letter-spacing: 0.07em;
+                color: $dark;
+                text-decoration: none;
+                line-height: 22px;
+        }
+        &:hover {
+            cursor: pointer;
+            background-color: $white;
+            box-shadow: 0px 2px 35px 14px #0D0D0D0A;
+            button {
+                background-color: $hov;
+                border-color: $hov;
+            }
+        }
+    }
+}
+.modal-window {
+    display: none;
+}
+.modal-window-active {
+    display: block;
+    overflow: hidden;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    .modal-card {
+        border-radius: 9px;
+        display: flex;
+            top: calc((100vh - 500px)/2);
+    left: calc((100vw - 900px)/2);;
+    position: fixed;
+    max-width: 900px;
+    max-height: 500px;
+
+        flex-direction: row;
+        justify-content: start;
+        gap: 29px;
+        background-color: #FAFAFA;
+        
+        .photo-pet {
+            width: 500px;
+            height: 500px;
+            border-radius: 9px;
+        }
+                .inner-card {
+                    position: relative;
+             .close-window {
+            position: absolute;
+            right: -65px;
+            top: -95px;
+            width: 52px;
+            height: 52px;
+            font-size: 32px;
+            color: $dark;
+            border: 2px solid $logo;
+            border-radius: 100px;
+            background-color: transparent;
+            &:hover {
+                background-color: $logo;
+                cursor: pointer;
+            }
+            }
+            .close-window-hover {
+                background-color: $logo;
+                cursor: pointer;
+            }
+               
+            margin-top: 50px;
+            margin-right: 20px;
+            display: flex;
+            flex-direction: column;
+            color: #000000;
+            font-family: $georgia;
+            font-size: 15px;
+            line-height: 16.5px;
+            letter-spacing: 0.06em;
+            .name {
+                font-size: 35px;
+                line-height: 45.5px;
+                color: #000000;
+                margin-bottom: 10px;
+            }
+            .kind {
+                font-size: 20px;
+                line-height: 23px;
+            }
+            .about-animal {
+                margin: 40px 0;
+            }
+            ul {
+                padding-left: 10px;
+                li {
+                   color: $logo;
+                   line-height: 16.5px;
+                   letter-spacing: 0.06em;
+                   strong {
+                       color: #000000;
+                       line-height: 16.5px;
+                       letter-spacing: 0.06em;
+    
+                   }
+                   span {
+                       color: #000000;
+                       font-weight: normal;
+                       line-height: 16.5px;
+                       letter-spacing: 0.06em;
+    
+                   }
+                }
+            }
+            
+        }
+    }
+}
+
+.pagination {
+    margin-top: 45px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    button {
+        @include buttons();
+        padding: 0;
+        width: 52px;
+        height: 52px;
+        text-align: center;
+        color: $dark;
+        &:hover {
+            border-color: transparent;
+            background-color: $hov;
+        }
+    }
+    .inactive,
+    .inactive:hover {
+        color: #cdcdcd;
+        border-color: #cdcdcd;
+        background-color: transparent;
+        cursor: not-allowed;
+    }
+    .active,
+    .active:hover {
+        border-color: transparent;
+        background-color: $logo;
+        cursor: auto;
+    }
+}
+
+footer {
+    background: url(../../assets/images/footer-background.png) no-repeat 0 0;
+    padding-top: 40px;
+    .container {
+        display: flex;
+        justify-content: space-between;
+        gap: 160px;
+        .footer-item:nth-child(2) {
+            max-width: 302px;
+        }
+        .footer-item {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            max-height: 234px;
+            margin-top: 16px;
+            &:first-child {
+                max-width: 279px;
+            }
+            h2 {
+                font-family: $georgia;
+                font-weight: 400;
+                font-size: 35px;
+                line-height: 45.5px;
+                letter-spacing: 0.06em;
+                margin: 0;
+            }
+            a {
+                display: flex;
+                gap: 20px;
+                align-items: center;
+                font-family: $georgia;
+                color: $logo;
+                font-size: 20px;
+                line-height: 23px;
+                letter-spacing: 0.06em;
+                text-decoration: none;
+                &:hover {
+                    color: $hov;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1279px) {
+    header {
+        padding: 30px;
+    }
+    .pets {
+        padding-bottom: 75px;
+    }
+    .cards {
+        max-width: 708px;
+        margin: 30px auto 0;
+        padding: 0;
+        justify-content: center;
+        .pet-card:nth-child(7),
+        .pet-card:nth-child(8) {
+            display: none;
+        }
+    }
+    .modal-window-active {
+        .modal-card {
+          width: 630px;
+          height: 350px;
+          top: calc((100vh - 350px) / 2);
+          left: calc((100vw - 630px) / 2);
+          gap: 11px;
+          .photo-pet {
+              width: 350px;
+              height: 350px;
+          }
+          .inner-card {
+              margin: 10px 9px 0 0;
+              .close-window {
+                  top: -65px;
+                  right: -55px;
+              }
+              .about-animal {
+                  margin: 20px 0;
+              }
+              ul {
+                  margin: 0 0 0 11px;
+              }
+          }
+  
+      }  
+  }
+  
+    .pagination {
+        margin-top: 42px;
+    }
+    footer {
+        background: url(../../assets/images/footer-gradient-background.jpg) no-repeat 0 0;
+        background-size: 100%;
+        
+        padding: 30px 10px 0;
+        .container {
+            max-width: 708px;
+            flex-wrap: wrap;
+            justify-content: center;
+            column-gap: 60px;
+            row-gap: 65px;
+            .footer-item {
+                gap: 40px;
+                margin-top: 0;
+                &:nth-child(2) {
+                    gap: 33px;
+                    max-width: 302px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+
+    body {
+        position: relative;
+    }
+    
+    header {
+        padding: 30px 50px 30px 10px;
+        justify-content: space-between;
+        gap: 43px;
+        transition: all 0.5s ease-out;
+        overflow: hidden;
+        position: relative;
+        
+        .logo-open {
+            display: block;
+            position: absolute;
+            right: 126px;
+            opacity: 0;
+            z-index: 1000;
+            
+            transition: all .3s;
+        }
+        .logo-open-active {
+            opacity: 1;
+            
+        }
+
+        .burger-btn {
+            display: flex;
+            width: 30px;
+            height: 30px;
+            align-self: center;
+            transition: all 0.3s;
+            z-index: 1000;
+            cursor: pointer;
+            .burger-menu {
+                display: block;
+                margin: auto;
+                width: 30px;
+                height: 2px;
+                background-color: #000000;
+                position: relative;
+
+                &::after,
+                &::before {
+                    content: "";
+                    width: 30px;
+                    height: 2px;
+                    background-color: #000000;
+                    position: absolute;
+                } 
+
+                &::before {
+                    top: -10px;
+                }
+
+                &::after {
+                    bottom: -10px;
+                }
+            }
+        }
+
+        .burger-btn-active {
+            transform: rotate(90deg);
+        }
+        
+        .nav-active {
+        transform: translateX(-320px);    
+        
+        }
+
+        nav {
+            display: flex;
+            background-color: $white;
+            width: 320px;
+            top: 0;
+            right: -320px;
+            height: 100vh;
+            position: fixed;
+            z-index: 999;
+            padding-top: 248px;
+            padding-bottom: 20px;
+            transition: all 0.5s;
+            @media (max-height: 615px) {
+                padding-top: 20%;
+            }
+            ul {
+                flex-direction: column;
+                padding: 0;
+                text-align: center;
+                margin: 0 auto;
+                gap: 55px;
+
+                li {
+                    line-height: 32px;
+                    .active {
+                        padding-bottom: 7px;
+                    }
+                    a {
+                        font-size: 32px;
+                        padding-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .pets {
+        padding: 42px 10px;
+        .cards {
+            max-width: 300px;
+            margin-top: 42px;
+            .pet-card:nth-child(4),
+            .pet-card:nth-child(5),
+            .pet-card:nth-child(6) {
+                display: none;
+            }
+        }
+    }
+    .modal-window-active {
+        .modal-card {
+          width: 240px;
+          height: auto;
+          top: calc((100vh - 350px) / 2);
+          left: calc((100vw - 240px) / 2);
+          box-sizing: border-box;
+          .photo-pet {
+              display: none;
+          }
+          .inner-card {
+              margin: 10px;
+              .close-window {
+                  top: -60px;
+                  right: -45px;
+              }
+              .about-animal {
+                  margin: 20px 0;
+              }
+              ul {
+                  margin: 0 0 0 11px;
+              }
+          }
+        }
+    }  
+    .pagination {
+        margin-top: 42px;
+        gap: 10px;
+    }
+
+    .title {
+        font-size: 25px;
+        line-height: 32.5px;
+        text-align: center;
+    }
+
+    footer {
+        background: url(../../assets/images/footer-gradient-background.jpg) no-repeat 0 0;
+        background-size: 100% 200%;
+        padding-top: 30px;
+        .container {
+            flex-wrap: wrap;
+            justify-content: center;
+            flex-direction: column;
+            column-gap: 60px;
+            row-gap: 40px;
+            max-width: 300px;
+            margin: 0 auto;
+            .doggo {
+                width: 260px;
+                margin: 0 auto;
+            }
+            .footer-item {
+                margin: 0 auto;
+                h2 {
+                    font-size: 25px;
+                    line-height: 32px;
+                    text-align: center;
+                }
+                a {
+                    gap: 20px;
+                    margin: 0 auto;
+                    justify-content: center;
+                }
+                &:nth-child(2) {
+                    h2 {
+                        max-width: 270px;
+                        margin: 0 auto;
+                    }
+                    a {
+                        margin: 0;
+                        justify-content: start;
+                    }
+                    gap: 40px;
+                    max-width: 300px;
+                }
+            }
+        }
+    }
+}
