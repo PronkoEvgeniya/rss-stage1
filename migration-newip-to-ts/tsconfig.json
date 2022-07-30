@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+      "target": "es2016",
+      "module": "commonjs",
+      "rootDir": "./src",
+      "sourceMap": false,
+      "strict": true,
+      "noImplicitAny": true,
+    },
+}
